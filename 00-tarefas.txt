@@ -1,58 +1,22 @@
 SELECT
 	 EX 1.0 RETORNAR O NOME DE TODAS AS PESSOAS CADASTRADAS NO SISTEMA 
-	 R:
-	   select nome
-       from ms_pessoa
 
 	 EX 2.0 SELECIONAR O NOME DO PAÍS
-	 R:
-	   select nome
-       from ms_pais SELECT, WHERE, LIKE.
+
 	 EX 3.0 RETORNAR O NOME DE TODAS AS PESSOAS QUE POSSUI "SILVA"
-	 R:select nome
-       from ms_pessoa
-       where nome like '%silva%';
 	   
 	 EX 4.0 SELECIONAR O NOME DO ESTADO CUJA SIGLA É IGUAL A "SC" SELECT, WHERE, BETWEEN.
-     R:
-	  select nome
-      from ms_estado
-      where sigla between 'SC' and 'SC';
 	 
 	 EX 5.0 RETORNAR O NOME, DATA NASCIMENTO, DATA CADASTRO TODAS AS PESSOAS CADASTRADAS EM 2021
-	 R:
-	  select nome,datanascimento,datacadastro
-      from ms_pessoa
-      where year(datacadastro) = 2021
 	  
 	 EX 6.0 SELECIONAR O NOME DOS FUNCIONÁRIOS ATIVOS,  DATA DE NASCIMENTO, ANO DE ADMISSÃO, 
 	 MATRÍCULA E DATA DE CADASTRO DE TODAS OS 	FUNCIONÁRIOS 				
 	 CADASTRADOS ENTRE O ANO 2000 A 2020 E QUE TENHAM MATRÍCULA PREENCHIDA SELECT, JOIN.
-	 R:
-      select nome, datanascimento, year(dataadmissao) as ano_admissao, matricula, datacadastro
-      from ms_pessoa
-      where matricula is not null
-      and EHFUNCIONARIO = 'S'
-      and year(dataadmissao) between 2000 and 2020;
 	 
 	 EX 7.0 RETORNAR O NOME DA PESSOA, TIPO LOGRADOURO, LOGRADOURO E NÚMERO DE TODOS OS ENDEREÇOS CADASTRADOS NO SISTEMA 
-	 R:
-	  select a.nome,c.nome as tipo_endereco,b.logradouro,b.numero
-      from ms_pessoa a
-      inner join ms_pessoaendereco b
-      on a.handle = b.pessoa
-      inner join ms_tipopessoaendereco c
-      on b.tipo = c.handle
 	  
 	 EX 8.0 SELECIONAR A QUANTIDADE DE PESSOAS CADASTRADAS E O NOME DO TIPO
      SELECT, JOIN, WHERE.
-	 R:
-	  select b.nome as tipo_pessoa, count(a.handle) as quantidade
-      from ms_pessoa a
-      inner join ms_tipopessoa b
-      on a.tipo = b.handle
-      group by b.nome
-      order by quantidade desc;
 
 	 EX 9.0 RETORNAR O APELIDO DA PESSOA, NÚMERO DO DOCUMENTO, DATA DE EMISSÃO, VALOR BRUTO E VALOR LÍQUIDO DE TODOS
 	 OS DOCUMENTOS FISCAIS E FINANCEIROS DE 			ENTRADA (CPA) ENCERRADOS.
