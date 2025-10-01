@@ -1,0 +1,199 @@
+
+Exportacao Importacao
+-- EXPORTACAO
+
+EX 1.0 EFETUAR A EXPORTACAO DE TODAS AS PESSOAS DO SISTEMA, RETORNANDO AS SEGUINTES COLUNAS.
+
+	"APELIDO DA PESSOA, TIPO, EMAIL"
+
+    	 APELIDO - MS_PESSOA - APELIDO
+
+         TIPO - MS_PESSOA - TIPO - MS_TIPOPESSOA - NOME
+
+         EMAIL - MS_PESSOA - EMAIL
+ 
+EX 2.0 EFETUAR A EXPORTAÇÃO DE TODOS OS ENDEREÇOS DE TODAS AS PESSOAS, ONDE TERÁ AS SEGUINTES COLUNAS.
+
+	"APELIDO DA PESSOA, CEP, TIPOLOGRADOURO, LOGRADOURO E NÚMERO"
+
+	 APELIDO - MS_PESSOA - APELIDO
+
+	 CEP -  MS_PESSOA - ENDERECOFISCAL -> MS_PESSOAENDERECO - CEP -> MS_CEP - CEP
+
+	 TIPOLOGRADOURO - MS_PESSOA - ENDERECOFISCAL -> MS_PESSOAENDERECO - TIPOLOGRADOURO -> MS_TIPOLOGRADOURO - NOME
+
+	 LOGRADOURO -  MS_PESSOA - ENDERECOFISCAL -> MS_PESSOAENDERECO - LOGRADOURO 
+
+	 NUMERO - MS_PESSOA - ENDERECOFISCAL -> MS_PESSOAENDERECO - NUMERO
+ 
+ 
+EX 3.0 CRIAR UM LAYOUT DE EDI JSON PARA QUE SEJA EXPORTADO DADOS DE UMA ÚNICA PESSOA COM AS SEGUINTES INFORMAÇÕES
+ 
+{
+
+    "Pessoa": {
+
+        "Tipo": "x",
+
+        "Nome": "xxx",
+
+        "Cnpj_cpf": "xxx"
+
+    }
+
+}
+
+----- Logica do layout -----
+
+{ --objeto
+
+    "Pessoa": { --objeto
+
+        "Tipo": "x", --atributo
+
+        "Nome": "xxx", --atributo
+
+        "Cnpj_cpf": "xxx" --atributo
+
+    }
+
+}
+ 
+EX 0.4 CRIAR UM LAYOUT DE EDI JSON PARA QUE SEJA EXPORTADO TODOS AS PESSOAS DO SISTEMA E SEU RESPECTIVO ENDERECO FISCAL
+
+{
+
+    "PESSOAS": [
+
+        {
+
+            "NOME": "NOME DA PESSOA 01",
+
+            "CODIGO": "1",
+
+            "ENDERECO": {
+
+                "CEP":"8916063",
+
+                "ESTADO":"Santa catarina",
+
+                "CIDADE":"Rio do Sul",               
+
+                "RUA":" teste",
+
+                "NUMERO":"265"
+
+                        }
+
+        },
+
+        {
+
+            "NOME": "NOME DA PESSOA 02",
+
+            "CODIGO": "2",
+
+            "ENDERECO": {
+
+                "CEP":"8916063",
+
+                "ESTADO":"Santa catarina",
+
+                "CIDADE":"Rio do Sul",               
+
+                "RUA":"teste",
+
+                "NUMERO":"265"
+
+                        }
+
+        }
+
+    ]
+
+}
+ 
+ 
+-- IMPORTACAO
+
+EX 1.0 EFETUAR A IMPORTAÇÃO DE CADASTRO DE PESSOA, ONDE NO ARQUIVO ENCAMINHADO PELO CLIENTE TERÁ AS SEGUINTES INFORMAÇÕES:
+
+				- Nome, Apelido, Tipo, CPF/CNPJ, Ehfuncionario, Ehcliente, Ramo atividade, Setor atividade
+ 
+EX 2.0 COM BASE NAS INFORMAÇÕES ABAIXO, CRIAR UM LAYOUT DE EDI PARA IMPORTAÇÃO DE CADASTRO DOS PRODUTOS:
+
+				- Nome, Un, Codigo ref., Tipo, Categoria, Familia, Grupo, Obs, Identificador	
+ 
+EX 2.1 LIBERAR O PRODUTO
+ 
+[TAREFA]
+
+EX 3.0 IMPORTAR E LIBERAR O REGISTROS DE PESSOA COM UM ARQUIVO TEXTO COM AS SEGUINTES COLUNAS, PODE EXISTIR CAMPOS FIXO PARA CONSEGUIR LIBERAR O REGISTRO:
+
+NOME;APELIDO;TIPO;CPF;FONE;EMAIL;RAMOATIVIDADE;SETORATIVIDADE;EHCLINTE;PAIS;ESTADO;CIDADE;CEP
+
+PESSOA IMPORTACAO;
+
+PESSOA IMPORTACAO;
+
+Física;
+
+62156863016;
+
+47997324110;
+
+pessoateste@gmail.com;
+
+Cooperativa;
+
+Outro;
+
+S;
+
+BRASIL;
+
+SC;
+
+RIO DO SUL;
+
+89160063;
+ 
+EX 4.0 EFETUAR UM LAYOUT DE IMPORTACAO PARA CADASTRO DE ITEM COM A SEGUINTE ESTRUTURA
+
+{
+
+    "item":{
+
+        "Codigo":"13232321",
+
+        "Nome":"Produto importacao JSON"
+
+    }
+
+}
+
+
+EX 5.0 EFETUAR UM LAYOUT DE IMPORTACAO DE LATITUTE E LONGITUDO NO CADASTRO DO ENDERECO FISCAL DA PESSOA AMAZON
+
+{
+
+    "CADASTRO":{
+
+			"PESSOA":{
+
+				"NOME":"AMAZON"
+
+				},
+
+            "ENDERECO":{
+
+				"LAT":"-26,9118",
+
+				"LNG":"-48,667"
+
+				}
+
+    }
+
+}
+}
