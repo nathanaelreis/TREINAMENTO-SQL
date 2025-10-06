@@ -2,8 +2,3 @@ select
     nome
 from
     ms_pais
-SELECT
-,
-WHERE
-,
-    LIKE.
